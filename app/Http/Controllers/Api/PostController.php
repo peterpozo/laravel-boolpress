@@ -28,4 +28,13 @@ class PostController extends Controller
             'results'=> $post
         ]);
     }
+
+    public function random() {
+        $posts = Post::inRandomOrder()->limit(9)->get();
+
+        return response()->json([
+            'success' => true,
+            'results' => $posts,
+        ]);
+    }
 }
